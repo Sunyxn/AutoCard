@@ -1,17 +1,6 @@
 /*
- * Copyright © 2021 <a href="mailto:zhang.h.n@foxmail.com">Zhang.H.N</a>.
- *
- * Licensed under the Apache License, Version 2.0 (thie "License");
- * You may not use this file except in compliance with the license.
- * You may obtain a copy of the License at
- *
- *       http://wwww.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language govering permissions and
- * limitations under the License.
+ * Copyright © 2022 <a href="mailto:zhang.h.n@foxmail.com">Zhang.H.N</a>.
+ * Release under GPL License
  */
 package top.gcszhn.autocard.service;
 
@@ -42,7 +31,7 @@ public class DingTalkHookServiceTest extends AppTest {
 
     @Test
     public void sendMarkdownTest() {
-        Assert.assertEquals(service.sendMarkdown(encrypt_url, "杭州天气", "### 杭州天气 \n> 9度，西北风1级，空气良89，相对温度73%\n> ![screenshot](https://img.alicdn.com/tfs/TB1NwmBEL9TBuNjy1zbXXXpepXa-2400-1218.png)\n> ###### 10点20分发布 [天气](https://www.dingalk.com) \n", true).getStatus(), 0);
+        Assert.assertEquals(0, service.sendMarkdown(encrypt_url, "杭州天气", "### 杭州天气 \n> 9度，西北风1级，空气良89，相对温度73%\n> ![screenshot](https://img.alicdn.com/tfs/TB1NwmBEL9TBuNjy1zbXXXpepXa-2400-1218.png)\n> ###### 10点20分发布 [天气](https://www.dingalk.com) \n", true).getStatus());
     }
 
     @Test
@@ -52,7 +41,7 @@ public class DingTalkHookServiceTest extends AppTest {
             String photo = clientService.getUserPhoto();
             StatusCode statusCode = service.sendMarkdown(encrypt_url, USERNAME, "### "+USERNAME+"\n你好\n![img](data:image/gif;base64,"+photo+")");
             System.out.println(statusCode.getMessage());
-            Assert.assertEquals(statusCode.getStatus(), 0);
+            Assert.assertEquals(0, statusCode.getStatus());
         }
     }
 }
